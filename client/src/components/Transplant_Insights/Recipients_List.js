@@ -5,7 +5,7 @@ import Noty from "noty";
 import "noty/lib/noty.css";
 import "noty/lib/themes/sunset.css";
 
-function Recipients_List(props) {
+function RecipientsList(props) {
   const [matchFoundRecipients, setMatchFoundRecipients] = useState([]);
 
   useEffect(() => {
@@ -80,4 +80,4 @@ function Recipients_List(props) {
   );
 }
 
-export default Recipients_List;
+export default RecipientsList;

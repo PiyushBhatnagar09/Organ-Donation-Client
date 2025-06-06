@@ -7,7 +7,7 @@ import Noty from "noty";
 import "noty/lib/noty.css";
 import "noty/lib/themes/sunset.css";
 
-class User_Medical_Info extends Component {
+class UserMedicalInfo extends Component {
   state = {
     aadhaarNumber: "",
     organ: "",
@@ -50,7 +50,6 @@ class User_Medical_Info extends Component {
       }
 
       const data = await response.json();
-      console.log(data);
 
       // Assuming backend sends: { organ, bloodgroup, matchFound, active, approved }
       this.setState({
@@ -217,4 +216,4 @@ class User_Medical_Info extends Component {
   }
 }
 
-export default User_Medical_Info;
+export default UserMedicalInfo;

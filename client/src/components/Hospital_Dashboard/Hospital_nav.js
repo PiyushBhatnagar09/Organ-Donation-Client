@@ -2,11 +2,11 @@ import React from "react";
 import 'react-bootstrap';
 import '@fortawesome/fontawesome-svg-core';
 import './main.css';
-import SideNav, { Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+import SideNav, { NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { NavLink } from "react-router-dom";
 
-function Hospital_nav() {
+function HospitalNav() {
     const logout = (event) => {
 
         window.localStorage.removeItem("isAuthenticated");
@@ -76,4 +76,4 @@ function Hospital_nav() {
 };
 
 
-export default Hospital_nav;
+export default HospitalNav;

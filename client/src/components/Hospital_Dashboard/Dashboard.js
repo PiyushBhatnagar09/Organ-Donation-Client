@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Hospital_nav from "./Hospital_nav";
+import HospitalNav from "./Hospital_nav";
 import socket from "./socket";
 import Noty from "noty";
 import "noty/lib/noty.css";
@@ -267,7 +267,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Hospital_nav />
+      <HospitalNav />
       <div style={styles.dashboardContainer}>
         {/* Donors Column */}
         <div style={styles.column}>

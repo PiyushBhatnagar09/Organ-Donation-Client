@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import "./corous.css";
 
 const Corous = (props) => {
@@ -8,7 +7,7 @@ const Corous = (props) => {
             <div className="con">
                 <div className="container1" id="courous">
                     <div className="image">
-                        <img src="https://media.istockphoto.com/vectors/heart-in-his-hands-symbol-of-love-and-charity-illustration-in-hand-vector-id1047076438?k=6&m=1047076438&s=170667a&w=0&h=5ssPnTvv8BzZpngboxzuoWv64XnhNDnFxO9RfrYHCfk=" alt="heart-image" />
+                        <img src="https://media.istockphoto.com/vectors/heart-in-his-hands-symbol-of-love-and-charity-illustration-in-hand-vector-id1047076438?k=6&m=1047076438&s=170667a&w=0&h=5ssPnTvv8BzZpngboxzuoWv64XnhNDnFxO9RfrYHCfk=" alt=""/>
                     </div>
                     <div className="text">
                         <div className='heading'>

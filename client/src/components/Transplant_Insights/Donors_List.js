@@ -5,7 +5,7 @@ import Noty from "noty";
 import "noty/lib/noty.css";
 import "noty/lib/themes/sunset.css";
 
-function Donors_List(props) {
+function DonorsList(props) {
   const [activeDonors, setActiveDonors] = useState([]);
 
   useEffect(() => {
@@ -82,4 +82,4 @@ function Donors_List(props) {
   );
 }
 
-export default Donors_List;
+export default DonorsList;

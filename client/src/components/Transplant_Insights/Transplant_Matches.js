@@ -5,7 +5,7 @@ import Noty from "noty";
 import "noty/lib/noty.css"; // Default CSS
 import "noty/lib/themes/sunset.css";
 
-function Transplant_Matches() {
+function TransplantMatches() {
   const [successfulTransplants, setSuccessfulTransplants] = useState([]);
 
   useEffect(() => {
@@ -75,4 +75,4 @@ function Transplant_Matches() {
   );
 }
 
-export default Transplant_Matches;
+export default TransplantMatches;

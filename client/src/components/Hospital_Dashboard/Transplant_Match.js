@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Grid, Button, Segment, Message } from 'semantic-ui-react';
-import Hospital_nav from './Hospital_nav';
+import HospitalNav from './Hospital_nav';
 import Noty from 'noty';
 import 'noty/lib/noty.css';
 import 'noty/lib/themes/sunset.css';
@@ -118,7 +118,7 @@ class TransplantMatch extends Component {
 
     return (
       <div>
-        <Hospital_nav />
+        <HospitalNav />
         <Grid centered style={{ marginTop: "30px" }}>
           <Grid.Column width={10}>
             <Message info>

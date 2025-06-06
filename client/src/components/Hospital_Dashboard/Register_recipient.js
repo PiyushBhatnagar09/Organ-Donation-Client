@@ -9,7 +9,7 @@ import {
   Message,
 } from "semantic-ui-react";
 import axios from "axios";
-import Hospital_nav from "./Hospital_nav";
+import HospitalNav from "./Hospital_nav";
 import Noty from "noty";
 import "noty/lib/noty.css";
 import "noty/lib/themes/sunset.css";
@@ -164,7 +164,7 @@ class RegisterRecipient extends Component {
   render() {
     return (
       <>
-        <Hospital_nav />
+        <HospitalNav />
         <Grid centered columns={2} style={{ marginTop: "20px" }}>
           <Grid.Column width={8}>
             <Segment>

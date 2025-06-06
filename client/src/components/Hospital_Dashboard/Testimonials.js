@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './Testimonials.css';
 import styled, { keyframes } from 'styled-components';
 
@@ -43,12 +42,6 @@ const Testimonials = () => {
 
     // Add more testimonials here
   ];
-
-  const [selectedTestimonial, setSelectedTestimonial] = useState(null);
-
-  const handleTestimonialClick = (testimonial) => {
-    setSelectedTestimonial(testimonial);
-  };
 
   return (
     <section className="testimonials-section">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Card, Segment, Header, Divider, Grid, Form, Button, Icon, Image } from 'semantic-ui-react';
+import { Card, Segment, Header, Divider, Grid, Form, Button, Image } from 'semantic-ui-react';
 import Top2 from '../Navbar/Top2';
 
 class HospitalList extends Component {

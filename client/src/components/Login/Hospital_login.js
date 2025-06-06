@@ -8,7 +8,7 @@ import Noty from "noty";
 import "noty/lib/noty.css"; // Default CSS
 import "noty/lib/themes/sunset.css";
 
-class Hospital_login extends Component {
+class HospitalLogin extends Component {
   state = {
     username: "AIIMS_Delhi",
     password: "1234",
@@ -157,4 +157,4 @@ class Hospital_login extends Component {
   }
 }
 
-export default Hospital_login;
+export default HospitalLogin;

@@ -1,8 +1,5 @@
-import React from "react";
-import { useState, useEffect } from "react";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import { NavLink } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import { HashLink as Link } from 'react-router-hash-link';
 import './top.css';

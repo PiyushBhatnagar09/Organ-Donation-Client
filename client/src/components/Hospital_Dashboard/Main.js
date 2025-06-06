@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Hospital_nav from "./Hospital_nav";
+import React, { useEffect } from "react";
+import HospitalNav from "./Hospital_nav";
 import Testimonials from "./Testimonials";
 import socket from "./socket";
 import Noty from "noty";
 import "noty/lib/noty.css";
 import "noty/lib/themes/sunset.css";
 
-function Main_page() {
+function MainPage() {
   const showNotification = (msg) => {
     let text = "";
     if (typeof msg === "string") {
@@ -45,10 +45,10 @@ function Main_page() {
 
   return (
     <>
-      <Hospital_nav />
+      <HospitalNav />
       <Testimonials />
     </>
   );
 }
 
-export default Main_page;
+export default MainPage;

@@ -10,7 +10,7 @@ import {
 } from "semantic-ui-react";
 import axios from "axios";
 import "semantic-ui-css/semantic.min.css";
-import Hospital_nav from "./Hospital_nav";
+import HospitalNav from "./Hospital_nav";
 import Noty from "noty";
 import "noty/lib/noty.css";
 import "noty/lib/themes/sunset.css";
@@ -307,6 +307,12 @@ class ApproveDonor extends Component {
   };
 
   componentDidMount() {
+    // 🔐 Redirect to login page if not authenticated
+    if (!localStorage.getItem("isAuthenticated")) {
+      window.location.href = "/Hospital_login";
+      return;
+    }
+    
     socket.on("connect", () => {
       console.log("✅ Socket reconnected on this page:", socket.id);
     });
@@ -332,20 +338,10 @@ class ApproveDonor extends Component {
     }).show();
   };
 
-  componentDidMount() {
-    // 🔐 Redirect to login page if not authenticated
-    if (!localStorage.getItem("isAuthenticated")) {
-      window.location.href = "/Hospital_login";
-      return;
-    }
-
-    socket.on("new-transplants", this.showNotification);
-  }
-
   render() {
     return (
       <>
-        <Hospital_nav />
+        <HospitalNav />
         <div class="main-content">
           <Grid centered columns={2} style={{ marginTop: "20px" }}>
             <Grid.Column width={8}>

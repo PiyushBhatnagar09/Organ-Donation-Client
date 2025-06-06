@@ -7,7 +7,7 @@ import Noty from "noty";
 import "noty/lib/noty.css";
 import "noty/lib/themes/sunset.css";
 
-class Donor_Register extends Component {
+class DonorRegister extends Component {
   state = {
     fname: "",
     lname: "",
@@ -251,4 +251,4 @@ class Donor_Register extends Component {
   }
 }
 
-export default Donor_Register;
+export default DonorRegister;
