@@ -1,0 +1,50 @@
+/* .dashboard-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.column {
+  flex: 1;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.column h2 {
+  text-align: center;
+  color: #3c3c3c;
+  margin-bottom: 10px;
+}
+
+.column input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.card {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  border-radius: 6px;
+  background: #fafafa;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: #f0f8ff;
+  cursor: pointer;
+} */

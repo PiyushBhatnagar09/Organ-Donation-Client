@@ -1,0 +1,79 @@
+/* Navbar height & padding - smaller */
+.navBackground {
+  background-color: white;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+  align-items: center; /* vertically center items */
+}
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Nav link styling */
+.nav-link {
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+.active-link {
+  font-weight: 700;
+  color: #ff5722 !important; /* orange-ish */
+}
+
+/* Login button */
+.login-nav .buttn {
+  background: linear-gradient(45deg, #ff8a00, #e52e71);
+  color: white !important;
+  padding: 0.8rem 1.8rem; /* increased left and right padding */
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.login-nav .buttn:hover {
+  background: linear-gradient(45deg, #e52e71, #ff8a00);
+  text-decoration: none;
+  color: white !important;
+}
+
+/* Ensure toggle button is visible */
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.75rem;
+}
+
+.nav-link-ltr {
+  margin: 0px 30px !important
+}
+.nav-link {
+  text-transform: none !important
+}
+/* Responsive fix - no wrapping */
+@media (max-width: 768px) {
+  .nav-link {
+    padding: 0.5rem 0;
+  }
+
+  .login-nav {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .login-nav .buttn {
+    padding: 0.6rem 1.4rem; /* slightly tighter padding on mobile */
+    width: fit-content;
+  }
+
+  .navbar-collapse {
+    align-items: center;
+  }
+}

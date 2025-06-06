@@ -1,0 +1,41 @@
+#footer-contact {
+  background: linear-gradient(to right, #3f4247, #1d2024);
+  padding: 30px 20px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  margin-top: 50px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.footer-contact-info {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 10px;
+}
+
+.social-icons li a {
+  color: #ffffff;
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons li a:hover {
+  color: #ffd700;
+  transform: scale(1.2);
+}
