@@ -68,6 +68,10 @@ A full-stack **organ donation platform** built to streamline **donor-recipient m
 ### 🔍 Transparency & Public Status Checks
 
 * **Public Tracking:** Donors and recipients can check their status using their **Aadhaar number**.
+
+![Alt text](client/assets/readme%20images/check%20donor%20details.png)
+![Alt text](client/assets/readme%20images/check%20recipient.png)
+
 * **Basic Info Displayed:**
 
   * Aadhaar Number
