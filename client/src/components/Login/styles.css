@@ -1,8 +1,7 @@
 .login body {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 14px;
-    background: #f2f2f2 url('https://static.tnn.in/photo/msid-94076423,updatedat-1662638937717,width-1280,height-720,resizemode-75/94076423.jpg') center/cover no-repeat;
-
+    background: #f2f2f2;
     padding: 20px;
 }
 
@@ -623,7 +622,7 @@
   align-items: center; */
 
   flex: 1;
-  background-image: url('https://rlv.zcache.com/svc/view?realview=113335724526596936&design=01e9bdfc-e334-419d-a43a-08891f30f97d&style=4.25x5.6&media=175ptmatte&envelopes=none&max_dim=1080&zattribution=zazzle'); /* Replace with generated image */
+  background-image: url('../../../assets/images/donor_register_quote.jpg');
   background-size: contain;
   background-position: center;
   max-width: 500px;

@@ -9,8 +9,6 @@ import MainPage from './components/Hospital_Dashboard/Main';
 import RegisterRecipient from './components/Hospital_Dashboard/Register_recipient';
 import HospitalList from './components/Hospitals_List/Hospital_list';
 import TransplantMatch from './components/Hospital_Dashboard/Transplant_Match';
-
-import "./App.css";
 import Dashboard from './components/Hospital_Dashboard/Dashboard';
 
 function App() {

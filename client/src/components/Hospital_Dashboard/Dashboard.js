@@ -111,7 +111,7 @@ const Dashboard = () => {
 
   const toggleDonorStatus = async (id, newStatus) => {
     try {
-      await axios.patch(`/api/donors/${id}/status`, { active: newStatus },
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/donors/${id}/status`, { active: newStatus },
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -138,7 +138,7 @@ const Dashboard = () => {
 
   const toggleRecipientStatus = async (id, newStatus) => {
     try {
-      await axios.patch(`/api/recipients/${id}/status`, { active: newStatus },
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/recipients/${id}/status`, { active: newStatus },
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -165,7 +165,7 @@ const Dashboard = () => {
 
   const toggleTransplantStatus = async (id, newStatus) => {
     try {
-      await axios.patch(`/api/transplants/${id}/status`, { status: newStatus },
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/transplants/${id}/status`, { status: newStatus },
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -193,9 +193,9 @@ const Dashboard = () => {
   const fetchAllData = async () => {
     try {
       const [dRes, rRes, tRes] = await Promise.all([
-        axios.get("/api/donors"),
-        axios.get("/api/recipients"),
-        axios.get("/api/transplants"),
+        axios.get(`${process.env.REACT_APP_API_URL}/api/donors`),
+        axios.get(`${process.env.REACT_APP_API_URL}/api/recipients`),
+        axios.get(`${process.env.REACT_APP_API_URL}/api/transplants`),
       ]);
       setDonors(dRes.data.data);
       setRecipients(rRes.data.data);
@@ -280,7 +280,7 @@ const Dashboard = () => {
             style={styles.searchInput}
           />
           <div style={styles.list}>
-            {filterData(donors, searchDonor).map((d) => (
+            {Array.isArray(donors) && filterData(donors, searchDonor).map((d) => (
               <div key={d._id} style={styles.card}>
                 <div style={styles.cardBold}>
                   {capitalize(d.fname)} {capitalize(d.lname)}
@@ -328,7 +328,7 @@ const Dashboard = () => {
             style={styles.searchInput}
           />
           <div style={styles.list}>
-            {filterData(recipients, searchRecipient).map((r) => (
+            {Array.isArray(recipients) && filterData(recipients, searchRecipient).map((r) => (
               <div key={r._id} style={styles.card}>
                 <div style={styles.cardBold}>
                   {capitalize(r.fname)} {capitalize(r.lname)}
@@ -373,7 +373,7 @@ const Dashboard = () => {
             style={styles.searchInput}
           />
           <div style={styles.list}>
-            {filterTransplants(transplants, searchTransplant).map((t) => (
+            {Array.isArray(transplants) && filterTransplants(transplants, searchTransplant).map((t) => (
               <div key={t._id} style={styles.card}>
                 <div style={styles.cardDetail}>
                   Donor Aadhaar: {t.donor?.aadhaarnumber || "N/A"}

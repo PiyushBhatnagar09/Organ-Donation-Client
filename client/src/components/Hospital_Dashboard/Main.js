@@ -8,14 +8,7 @@ import "noty/lib/themes/sunset.css";
 
 function MainPage() {
   const showNotification = (msg) => {
-    let text = "";
-    if (typeof msg === "string") {
-      text = msg;
-    } else if (msg && typeof msg === "object") {
-      text = msg.message || JSON.stringify(msg);
-    } else {
-      text = "New transplant event received";
-    }
+    let text = "New transplant event received";
 
     new Noty({
       theme: "sunset",

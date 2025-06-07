@@ -1,165 +1,127 @@
-# Organ Donation and Transplant Management System
+# 🫁 Organ Donation Management System
 
-This project is a **blockchain-integrated platform** designed to streamline and secure the organ donation and transplant process. It connects **donors**, **recipients**, and **hospitals**, ensuring transparency and efficiency. The system leverages **MongoDB** for fast and easy data access while storing critical data on the blockchain for security and immutability. **MetaMask is not required** for most user interactions, making the platform accessible to a wider audience.
+A full-stack **organ donation platform** built to streamline **donor-recipient matching** and improve transparency, efficiency, and trust in the organ transplant process.
 
-![home_page](https://github.com/user-attachments/assets/04ce7024-3e1a-4558-bfe2-067e9b534d07)
-![home1](https://github.com/user-attachments/assets/b2a1fd21-5aab-4e07-b08f-7ebc064be6ac)
-![home2](https://github.com/user-attachments/assets/a74daa21-9f27-472a-9516-f9a89dbd0763)
+![Alt text](client/assets/readme%20images/home.png)
 
-## Table of Contents
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Implementation Details](#implementation-details)
-  - [Donor Registration](#donor-registration)
-  - [Hospital Login](#hospital-login)
-  - [Approve Donor](#approve-donor)
-  - [Recipient Registration](#recipient-registration)
-  - [Transplant Match](#transplant-match)
-  - [Transplant Insights](#transplant-insights)
-  - [Money Donation](#money-donation)
-- [Usage](#usage)
-- [Contributing](#contributing)
+## 🚀 Features
 
-## Features
-### 1. **Donor Registration**
-- Donors can register on the platform without the need for MetaMask or blockchain knowledge.
-- Donor data is stored on the blockchain and replicated in MongoDB for faster access.
+### 👥 Donor & Recipient Management
 
-![donor_signup](https://github.com/user-attachments/assets/4f7d6265-9649-499f-a292-e385aa371c06)
+* **Donor Registration (Public):** Donors can register via a public form on the website.
 
-### 2. **Donor Status Check**
-- Donors can check their registration and donation status without needing MetaMask.
+![Alt text](client/assets/readme%20images/donor_register.png)
 
-![donor_info](https://github.com/user-attachments/assets/ae53194b-fc8d-4127-a3cb-7be95eab73fe)
+* **Recipient Registration (Hospital-only):** Hospitals can register recipients with organ and health details.
 
-### 3. **Transplant Insights**
-Users can view:
-- **Active Donors**: Total donors available.
-- **Active Recipients**: Individuals in need of organ transplants.
-- **Transplant Matches**: Match data between donors and recipients.
+![Alt text](client/assets/readme%20images/register_recipient.png)
 
-![transplant_matches](https://github.com/user-attachments/assets/e764c52e-4e83-4337-8c22-3e2fa5324a95)
+### 🏥 Donor Approval Workflow
 
-> **Note:** All transplant-related data is first stored on the blockchain for transparency and then added to MongoDB for easy access.
+* **Medical Criteria Verification:** Hospitals approve donors based on organ-specific metrics like:
 
-### 4. **Hospital Portal**
-- Hospitals can log in using their **Aadhar number** and **email**.
-- Functionality includes:
-  - **Approve Donors**: Verify and approve donors.
-  - **Register Recipients**: Add recipients who need organs.
-  - **Check Transplant Matches**: View potential matches between donors and recipients.
+  * **Kidney:** Creatinine, eGFR, BUN
+  * **Heart:** Cholesterol, LDL, HDL, etc.
+* **Auto-Fill from Reports:** Medical reports can be parsed using:
 
-![hospital_portal](https://github.com/user-attachments/assets/7ebd265b-08de-4ea9-be03-cc58225036a4)
+  * **Google Vision API**
+  * **PyMuPDF**
+  * **Google Gemini API**
+* These tools extract and structure key-value medical data for quick form auto-filling.
+* Donor data is auto-fetched from the registration form for seamless approval.
 
-### 5. **Donation with Razorpay**
-- Users can donate money through **Razorpay** (test mode).
-- The names of monetary donors are displayed on the website to inspire and motivate others.
+![Alt text](client/assets/readme%20images/approve_donor_data_parsing.png)
 
-![money_donation](https://github.com/user-attachments/assets/456bf141-af45-4207-b90e-9c20ea3ba93d)
+### 🔄 Fast & Accurate Organ Matching
 
-## Technologies Used
+* **Bucketing by Blood Group & Organ Type:** Reduces search space for transplant candidates.
+* **Priority Queue (Heap) for Recipients:**
 
-- **Frontend**: React.js
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Blockchain**: Smart Contract(via Solidity), Ethereum (Sepolia testnet)
-- **Payment Gateway**: Razorpay (test mode)
-- **Authentication**: Custom authentication for hospitals, no MetaMask required for most interactions
+  * Ensures quick selection of high-priority (severe or long-waiting) recipients.
+  * Matching in **O(1)** time, insertion in **O(log m)** where *m* = recipients in the same bucket.
+* **Efficiency Boost:** Avoids naive **O(n × m)** complexity by optimized recipient grouping.
 
-## Implementation Details
+![Alt text](client/assets/readme%20images/transplant_match_completed.png)
 
-### Donor Registration
+### 🔒 Safe Transplant Logic with Concurrency Control
 
-Donors need to enter their details like name, email, password, gender, blood group, city, organ.
+* **Critical Section Locking:** Uses **mutex locks** to avoid simultaneous transplant runs (prevents assigning a donor to multiple recipients).
+* **Real-time Notifications:** Built with **Socket.IO** to notify hospitals:
 
-![donor_signup](https://github.com/user-attachments/assets/da6a7b9f-b95c-4413-acc8-991a19d3727f)
+  * When transplant matching is in progress
+  * When it's complete
+  * Number of successful matches
 
-### Hospital Login
+![Alt text](client/assets/readme%20images/transplant_match_running.png)
+![Alt text](client/assets/readme%20images/transplant_match_completed.png)
 
-Hospitals can login with their unique credentials.
+### 📊 Hospital Dashboard
 
-![hospital_login](https://github.com/user-attachments/assets/f5756772-e621-468b-9a9b-6b3b88c7eba4)
+* **Status Management:**
 
-### Approve Donor
+  * Activate/Deactivate donors and recipients
+  * Manage transplant outcomes: Scheduled, Cancelled, Successful, Unsuccessful
+* **Search by Aadhaar Number:** Filter donors, recipients, and transplant records easily
 
-Hospitals need to verify the Donor using his/her aadhar number and email.
-Now, Donor details will be stored in Blockchain and also updated in MongoDB database.
+![Alt text](client/assets/readme%20images/Hospital%20Dashboard.png)
 
-![approve_donor](https://github.com/user-attachments/assets/233d9713-818f-4b93-aba5-5d2e509ec58c)
+### 🔍 Transparency & Public Status Checks
 
-### Recipient Registration
+* **Public Tracking:** Donors and recipients can check their status using their **Aadhaar number**.
+* **Basic Info Displayed:**
 
-Hospitals need to register details of recipient by giving their demographic details and bloodgroup, organ details.
-Now, Recipient details will be stored in Blockchain and also updated in MongoDB database.
+  * Aadhaar Number
+  * Organ & Blood Group
+  * Transplant Status and Timestamps
 
-![recipient_register](https://github.com/user-attachments/assets/108ee5ae-3cc4-4181-bfdd-8204141fe0fe)
+![Alt text](client/assets/readme%20images/active%20donors.png)
 
-### Transplant Match
+---
 
-Hospitals can do transplant match to find matching donors for recipients. 
-Transplant match details will also be stored in Blockchain and updated in MongoDB database.
+## 🛠️ Tech Stack
 
-![transplant](https://github.com/user-attachments/assets/2cdddf14-37d6-4f9e-93a2-c88c9faf1526)
-![transplant_success](https://github.com/user-attachments/assets/0607489f-585f-44d7-a640-e0261565119c)
+| Layer           | Technology                                     |
+| --------------- | ---------------------------------------------- |
+| Frontend        | React.js                                       |
+| Backend         | Node.js, Express.js                            |
+| Database        | MongoDB                                        |
+| AI/ML & Parsing | Python, Google Vision API, PyMuPDF, Gemini API |
+| Real-time       | Socket.IO                                      |
 
-### Transplant Insights
+---
 
-Users can view active donors, active recipients and transplant matches details on Transplant Insights page.
+## 📁 Project Structure
 
-Active Donors
-![active_donors](https://github.com/user-attachments/assets/2bb47b66-68fd-408e-bc35-ffdae723b88c)
+```
+organ-donation-system/
+├── client/               # React frontend
+├── server/               # Node.js + Express backend
+├── models/               # MongoDB schemas
+├── utils/                # Matching logic, bucket/heap management
+├── ai-services/          # OCR and Gemini-based extraction
+├── sockets/              # Real-time logic using Socket.IO
+```
 
-Active Recipients
-![active_recipients](https://github.com/user-attachments/assets/2899f44b-7195-4771-ad5d-7efbe7b8df38)
+---
 
-Transplant Matches
-![transplant_matches](https://github.com/user-attachments/assets/2640a9cf-ea11-44a8-91c6-c74b918e701d)
+## 📌 Highlights
 
+* ⚡ **Efficient Matching Logic**
+* 🔐 **Concurrency-Safe Allocation**
+* 🤖 **AI-Assisted Medical Form Filling**
+* 📡 **Real-Time Updates**
+* 🌐 **Public Transparency Features**
 
-### Money Donation
+---
 
-Users can also donate money using Razorpay test mode.
+## 📣 Contributing
 
-![money_donation](https://github.com/user-attachments/assets/daf3124e-2bc1-4eac-bf7b-a3cac5e2b32e)
-![razorpay](https://github.com/user-attachments/assets/83550f9f-1e4e-4fc5-9e66-4de7ab5102fb)
+Have ideas or improvements? Contributions are welcome! Fork the repo and raise a PR.
 
-## Usage
+---
 
-To use the Organ Donation and Transplant Management System:
+## 📄 License
 
-1. **Donor Registration:**
-   - Visit the website's donor registration page.
-   - Fill in the required details, including personal information and organ donation preferences.
-   - Submit the form to register as a donor. Your data will be securely stored on the blockchain and replicated in MongoDB for fast access.
+This project is open-source and available under the [MIT License](LICENSE).
 
-2. **Check Donor Status:**
-   - Navigate to the donor status page.
-   - Enter your registered details to check your donation status without needing MetaMask.
-
-3. **View Transplant Insights:**
-   - Access the insights page to view:
-     - Active donors
-     - Active recipients
-     - Transplant matches
-   - The data is fetched from MongoDB for efficiency and reflects blockchain-verified information.
-
-4. **Hospital Portal:**
-   - Log in using the hospital portal with your Aadhar number and email.
-   - Approve donors, register recipients, and view transplant matches with verified details.
-
-5. **Make a Donation:**
-   - Go to the donation page and contribute money using Razorpay in test mode.
-   - View the list of donors who have contributed, displayed on the website to encourage others.
-
-## Contributing
-
-Contributions are welcome! If you want to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-   git checkout -b feature-name
-3. Make your changes and test them thoroughly.
-4. Commit your changes with a descriptive message.
-5. Push the changes to your forked repository.
-6. Submit a pull request with a detailed description of your changes.
-
+---

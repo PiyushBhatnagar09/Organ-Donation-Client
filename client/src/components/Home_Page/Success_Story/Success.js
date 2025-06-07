@@ -19,7 +19,7 @@ export default function Success() {
 
     return (
         <div id="success">
-            <div class="nine">
+            <div className="nine">
                 <h1>&nbsp;&nbsp;&nbsp;LIFE STORY</h1>
             </div>
             <section className='iteam_section mt-4 container'>

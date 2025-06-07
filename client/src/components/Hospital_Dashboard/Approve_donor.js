@@ -312,7 +312,7 @@ class ApproveDonor extends Component {
       window.location.href = "/Hospital_login";
       return;
     }
-    
+
     socket.on("connect", () => {
       console.log("✅ Socket reconnected on this page:", socket.id);
     });
@@ -342,7 +342,7 @@ class ApproveDonor extends Component {
     return (
       <>
         <HospitalNav />
-        <div class="main-content">
+        <div className="main-content">
           <Grid centered columns={2} style={{ marginTop: "20px" }}>
             <Grid.Column width={8}>
               <Segment>

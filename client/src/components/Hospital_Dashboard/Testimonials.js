@@ -30,7 +30,7 @@ const Testimonials = () => {
       name: 'Olivia Martinez',
       designation: 'Family Member',
       testimonial: 'Our experience with the hospital was outstanding. The doctors and nurses displayed professionalism and empathy throughout our loved one\'s treatment. They kept us well-informed and provided the highest quality of care.',
-      photo: 'https://yt3.googleusercontent.com/lUVJnWd4XoN5QUZWzK_QiCdRNdEOuzfNXZg_gYuDOcUfjy9dcafqSl0lRU6pYuAnovLx9X4fyZI=s900-c-k-c0x00ffffff-no-rj',
+      photo: 'https://tse4.mm.bing.net/th/id/OIP.jnnuUvM0BLh9YdgE0z0ifQHaE8?rs=1&pid=ImgDetMain',
     },
     {
       id: 3,

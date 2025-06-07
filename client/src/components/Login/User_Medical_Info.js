@@ -9,7 +9,7 @@ import "noty/lib/themes/sunset.css";
 
 class UserMedicalInfo extends Component {
   state = {
-    aadhaarNumber: "",
+    aadhaarNumber: "123456789000",
     organ: "",
     bloodgroup: "",
     matchfound: false,
